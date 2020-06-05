@@ -7,8 +7,9 @@ scenario, whereupon failed metrics, the attempt to upgrade the application halts
 
 Tools used for this demo include:
 
-* `eksctl` to create the cluster, `eksctl enable repo` to install GitOps Operator tools (FluxCD, Helm Operator),
-`eksctl enable profile appmesh` to install:
+* `eksctl` to create the cluster. `eksctl` is the official CLI tool created by Weaveworks for creating clusters on AWS. 
+* `eksctl enable repo` to install GitOps Operator tools (FluxCD, Helm Operator)
+* `eksctl enable profile appmesh` to install:
     * Kubernetes custom resources: mesh, virtual nodes and virtual services
     * CRD controller: keeps the custom resources in sync with the App Mesh control plane
     * Admission controller: injects the Envoy sidecar and assigns pods to App Mesh virtual nodes
@@ -16,10 +17,11 @@ Tools used for this demo include:
     * Progressive delivery operator: Flagger instance that automates canary releases on top of App Mesh
 * `app mesh` as the service mesh (comprised of the App Mesh controller, CRDs, Grafana, 
 sidecar injector, Prometheus)
-* GitOps to ensure Git is the source of truth for declarative infrastructure and applications
-* `fluxctl` to allow Flux to automatically apply and deploy contents of your Git repository
-* `flagger` to implement Canary deployments and progressive delivery, automating the release process 
-for applications running on Kubernetes
+* GitOps operational method to ensure Git is the source of truth for declarative infrastructure and applications
+* `fluxctl` to allow Flux, the GitOps operator created by Weaveworks, to automatically apply and deploy contents of your 
+Git repository. Fluxctl is another Weaveworks OSS project that will be used for today's demo for time's sake.
+* `flagger` to implement progressive delivery. Created by Weaveworks, Flagger is a Kubernetes operator 
+that automates the promotion of canary deployments.
 
 ## Automated Canary Promotion
 

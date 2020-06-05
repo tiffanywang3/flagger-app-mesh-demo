@@ -7,25 +7,25 @@ scenario, whereupon failed metrics, the attempt to upgrade the application halts
 
 Tools used for this demo include:
 
-* `eksctl` to create the cluster. `eksctl` is the official CLI tool created by Weaveworks for creating clusters on AWS. 
-* `eksctl enable repo` to install GitOps Operator tools (FluxCD, Helm Operator)
-* `eksctl enable profile appmesh` to install:
+* [eksctl](https://github.com/weaveworks/eksctl) to create the cluster. `eksctl` is the official CLI tool created by Weaveworks for creating clusters on AWS. 
+* [eksctl enable repo](https://www.weave.works/blog/automate-eks-cluster-configuration-with-gitops-and-eksctl) to install GitOps Operator tools (FluxCD, Helm Operator)
+* [eksctl enable profile appmesh](https://github.com/weaveworks/eks-appmesh-profile) to install:
     * Kubernetes custom resources: mesh, virtual nodes and virtual services
     * CRD controller: keeps the custom resources in sync with the App Mesh control plane
     * Admission controller: injects the Envoy sidecar and assigns pods to App Mesh virtual nodes
     * Telemetry service: Prometheus instance that collects and stores Envoy’s metrics
     * Progressive delivery operator: Flagger instance that automates canary releases on top of App Mesh
-* `app mesh` as the service mesh (comprised of the App Mesh controller, CRDs, Grafana, 
-sidecar injector, Prometheus)
+* [app mesh](https://aws.amazon.com/app-mesh/) as the service mesh (comprised of the App Mesh controller, CRDs, Grafana, 
+sidecar injector, Prometheus, installed via appmesh profile and [eks-charts](https://github.com/aws/eks-charts/tree/master/stable))
 * GitOps operational method to ensure Git is the source of truth for declarative infrastructure and applications
-* `fluxctl` to allow Flux, the GitOps operator created by Weaveworks, to automatically apply and deploy contents of your 
+* [fluxctl](https://docs.fluxcd.io/en/1.17.1/references/fluxctl.html) to allow Flux, the GitOps operator created by Weaveworks, to automatically apply and deploy contents of your 
 Git repository. Fluxctl is another Weaveworks OSS project that will be used for today's demo for time's sake.
-* `flagger` to implement progressive delivery. Created by Weaveworks, Flagger is a Kubernetes operator 
+* [flagger](https://docs.flagger.app) to implement progressive delivery. Created by Weaveworks, Flagger is a Kubernetes operator 
 that automates the promotion of canary deployments.
 
 ## Automated Canary Promotion
 
-Today's demo uses a sample microservice `podinfo` to mimic an application for us to Canary. Version 3.1.0 is currently 
+Today's demo uses a sample microservice [podinfo](podinfo stefan) to mimic an application for us to Canary. Version 3.1.0 is currently 
 deployed, and as a mechanism to demonstrate a visual change, we will be editing the image displayed on the page as we edit 
 the `podinfo` image tag. 
 
@@ -98,4 +98,3 @@ promotion to halt, and for all traffic to be routed back to the stable version o
 If you would like to run through this demo on your own, please take a look at Workshop 5, [Accelerating 
 the Software Development Lifecycle](https://weaveworks-gitops.awsworkshop.io/50_workshop_5_accelerating_sdlc.html). You can use [your
 own AWS account](https://weaveworks-gitops.awsworkshop.io/10_aws_prerequisites/20_self_paced.html) to work through this demo.
-

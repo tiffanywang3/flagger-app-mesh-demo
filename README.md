@@ -9,11 +9,11 @@ Tools used for this demo include:
 
 * `eksctl` to create the cluster, `eksctl enable repo` to install GitOps Operator tools (FluxCD, Helm Operator),
 `eksctl enable profile appmesh` to install:
-        * Kubernetes custom resources: mesh, virtual nodes and virtual services
-        * CRD controller: keeps the custom resources in sync with the App Mesh control plane
-        * Admission controller: injects the Envoy sidecar and assigns pods to App Mesh virtual nodes
-        * Telemetry service: Prometheus instance that collects and stores Envoy’s metrics
-        * Progressive delivery operator: Flagger instance that automates canary releases on top of App Mesh
+    * Kubernetes custom resources: mesh, virtual nodes and virtual services
+    * CRD controller: keeps the custom resources in sync with the App Mesh control plane
+    * Admission controller: injects the Envoy sidecar and assigns pods to App Mesh virtual nodes
+    * Telemetry service: Prometheus instance that collects and stores Envoy’s metrics
+    * Progressive delivery operator: Flagger instance that automates canary releases on top of App Mesh
 * `app mesh` as the service mesh (comprised of the App Mesh controller, CRDs, Grafana, 
 sidecar injector, Prometheus)
 * GitOps to ensure Git is the source of truth for declarative infrastructure and applications

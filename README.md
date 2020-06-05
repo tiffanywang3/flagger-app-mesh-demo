@@ -25,7 +25,7 @@ that automates the promotion of canary deployments.
 
 ## Automated Canary Promotion
 
-Today's demo uses a sample microservice [podinfo](podinfo stefan) to mimic an application for us to Canary. Version 3.1.0 is currently 
+Today's demo uses a sample microservice [podinfo](https://github.com/stefanprodan/podinfo) to mimic an application for us to Canary. Version 3.1.0 is currently 
 deployed, and as a mechanism to demonstrate a visual change, we will be editing the image displayed on the page as we edit 
 the `podinfo` image tag. 
 

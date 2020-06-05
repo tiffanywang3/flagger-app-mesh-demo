@@ -94,4 +94,6 @@ we expect the Canary to be halted until the success rate increases to 99% (set i
 promotion to halt, and for all traffic to be routed back to the stable version of your application.
 
 If you would like to run through this demo on your own, please take a look at Workshop 5, [Accelerating 
-the Software Development Lifecycle](https://weaveworks-gitops.awsworkshop.io/50_workshop_5_accelerating_sdlc.html).
+the Software Development Lifecycle](https://weaveworks-gitops.awsworkshop.io/50_workshop_5_accelerating_sdlc.html). You can use [your
+own AWS account](https://weaveworks-gitops.awsworkshop.io/10_aws_prerequisites/20_self_paced.html) to work through this demo.
+
